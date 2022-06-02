@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>TIMER</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    
+    <link rel="stylesheet" href="reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+   
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="TASK LIST.html">TASK LIST</a></li>
+                <li class="active"><a href="#">TIMER</a></li>
+                <li><a href="NOTES.html">NOTES</a></li>
+            </ul>
+        </nav>
+
+      <input type="text" value="0" id="time"/>
+        <input type="button" value="START"  onclick="timecount()" id="timesum" />
+        <input type="button" value="STOP" onclick="timestop()" />
+      
+        <input type="text" value="0" id="time2"/>
+        <input type="button" value="START"  onclick="timecount()" id="timesum2" />
+        <input type="button" value="STOP" onclick="timestop()" />
+      
+        <input type="text" value="0" id="time3"/>
+        <input type="button" value="START"  onclick="timecount()" id="timesum3" />
+        <input type="button" value="STOP" onclick="timestop()" />
+        <script>
+         
+            var timeCount = 0;
+            function timecount(){
+                document.getElementById("time").value = timeCount;
+                timeCount++;
+                setTimeout("timecount()",1000); 
+            }
+            function timestop(){
+                clearTimeout(timeCount); 
+                document.getElementById("timesum").value = "Continue"
+            }
+          
+        
+          
+   </script>
+
+        <div id="waitTime"></div>
+        <div>
+
+            <b class="more" onclick="displayWindow()">
+                ADD NEW TIMER
+            </b>
+        </div>
+        <center>
+            <div id="window" class="window_css">
+                <div id="table">
+                    <center><h5 style="line-height:1.2">Create New Timer</h5></center>
+                    <center>
+                        <div>
+                            <p>(min)</p>
+                            <table style="text-align: center;">
+                                <tr>
+                                    <td>Study 1:</td>
+                                    <td><input type="text" id="study1"></td>
+                                <tr>
+                                    <td>Rest 1:</td>
+                                    <td><input type="text" id="rest"></td>
+                                </tr>
+                                <tr>
+                                    <td>Study 2:</td>
+                                    <td><input type="text" id="study2"></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left">
+                                        <input id="submit" class="submit" type="submit" value="Submit" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </center>
+                </div>
+                <b2 class="more" onclick="hideWindow()">
+                    CANCEL
+                </b2>
+            </div>
+        </center>
+        <div id="shadow" class="shadow_css">
+
+        </div>
+        <script>
+
+            function displayWindow() {
+                document.getElementById("window").style.display = "block";
+                document.getElementById("shadow").style.display = "block";
+            }
+
+            function hideWindow() {
+                document.getElementById("window").style.display = "none";
+                document.getElementById("shadow").style.display = "none";
+            }
+
+            function timerlist() {
+                var jsonstr = localStorage.getItem("timerlist");
+                var timer = jsonstr == null || jsonstr.length == 0 ? {} : JSON.parse(jsonstr);
+               
+                document.getElementById("time1").value = timer.Study1;
+                document.getElementById("time2").value = timer.Rest;
+                document.getElementById("time3").value = timer.Study2;
+
+
+            }
+            timerlist();
+            document.getElementById("submit").onclick = function () {
+                var jsonstr = localStorage.getItem("timerlist");
+                var timer = jsonstr == null || jsonstr.length == 0 ? [] : JSON.parse(jsonstr);
+
+
+                var Study1 = document.getElementById("study1").value;
+                var Rest = document.getElementById("rest").value;
+                var Study2 = document.getElementById("study2").value;
+
+                var params = { Study1: Study1, Rest: Rest, Study2: Study2}
+                var jsonstr = JSON.stringify(params); 
+                localStorage.setItem("timerlist", jsonstr);
+
+                timerlist();
+                hideWindow();
+            } 
+        </script>
+
+
+    </div>
+</body>
+</html>
+
