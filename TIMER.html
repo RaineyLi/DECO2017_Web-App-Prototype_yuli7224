@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="en"><head>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>TIMER</title>
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
     <link rel="stylesheet" href="reset.css" type="text/css" media="screen">
     <link rel="stylesheet" href="style.css" type="text/css" media="screen">
-   
 
 </head>
-
 <body>
-
     <div class="container">
-
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -24,33 +21,89 @@
             </ul>
         </nav>
 
-      <input type="text" value="0" id="time"/>
-        <input type="button" value="START"  onclick="timecount()" id="timesum" />
+        <div>
+            Time1：<span id="spantime1">0</span>
+            Time2：<span id="spantime2">0</span>
+            Time3：<span id="spantime3">0</span>
+        </div>
+
+
+        <input type="text" value="0" id="time1" />
+        <input type="button" value="START" onclick="timecount()" id="timesum1" />
         <input type="button" value="STOP" onclick="timestop()" />
+
+        <input type="text" value="0" id="time2" />
+        <input type="button" value="START" onclick="timecount()" id="timesum2" />
+        <input type="button" value="STOP" onclick="timestop()" />
+
+        <input type="text" value="0" id="time3" />
+        <input type="button" value="START" onclick="timecount()" id="timesum3" />
+        <input type="button" value="STOP" onclick="timestop()" />
+
       
-        <input type="text" value="0" id="time2"/>
-        <input type="button" value="START"  onclick="timecount()" id="timesum2" />
-        <input type="button" value="STOP" onclick="timestop()" />
-      
-        <input type="text" value="0" id="time3"/>
-        <input type="button" value="START"  onclick="timecount()" id="timesum3" />
-        <input type="button" value="STOP" onclick="timestop()" />
         <script>
-         
+
+            var time1 = 0, time2 = 0, time3 = 0;
             var timeCount = 0;
-            function timecount(){
-                document.getElementById("time").value = timeCount;
+            var isstop = false;
+            function timecount() { 
+                isstop = false;
+                timecount1();
+            }
+            function timecount1() {
                 timeCount++;
-                setTimeout("timecount()",1000); 
+                document.getElementById("time1").value = timeCount;
+                if (time1 == timeCount) {
+                    timeCount = 0;
+                    timecount2();
+                }
+                else {
+                    if (!isstop) {
+                        setTimeout("timecount1()", 1000);
+                    } 
+                }
             }
-            function timestop(){
-                clearTimeout(timeCount); 
-                document.getElementById("timesum").value = "Continue"
+
+            function timecount2()
+            {
+                timeCount++;
+                document.getElementById("time2").value = timeCount; 
+                if (time2 == timeCount) {
+                    timeCount = 0;
+                    timecount3();
+                }
+                else {
+                    if (!isstop) {
+                        setTimeout("timecount2()", 1000);
+                    }
+                } 
             }
-          
-        
-          
-   </script>
+            function timecount3() {
+                timeCount++;
+                document.getElementById("time3").value = timeCount; 
+                if (time3 == timeCount) {
+                    timeCount = 0;
+                    document.getElementById("time3").value = "Continue"
+                }
+                else {
+                    if (!isstop) {
+                        setTimeout("timecount3()", 1000);
+                    }
+                } 
+            } 
+
+            function timestop() { 
+                isstop = true;
+                timeCount = 0;
+                document.getElementById("time3").value = "stop"
+            }
+
+            //if var time = "study1" x 60;
+            //then start "timecount()" id = "timesum2";
+            //if var time = "rest1" x 60;
+            //then start "timecount()" id = "timesum3";
+
+        </script>
 
         <div id="waitTime"></div>
         <div>
@@ -62,7 +115,7 @@
         <center>
             <div id="window" class="window_css">
                 <div id="table">
-                    <center><h5 style="line-height:1.2">Create New Timer</h5></center>
+                    <center><h5 style="line-height:1.2">Creatsecondsew Timer</h5></center>
                     <center>
                         <div>
                             <p>(min)</p>
@@ -110,10 +163,14 @@
             function timerlist() {
                 var jsonstr = localStorage.getItem("timerlist");
                 var timer = jsonstr == null || jsonstr.length == 0 ? {} : JSON.parse(jsonstr);
-               
-                document.getElementById("time1").value = timer.Study1;
-                document.getElementById("time2").value = timer.Rest;
-                document.getElementById("time3").value = timer.Study2;
+
+                time1 = timer.Study1;
+                time2 = timer.Rest; 
+                time3 = timer.Study2; 
+
+                document.getElementById("spantime1").innerHTML = timer.Study1;
+                document.getElementById("spantime2").innerHTML = timer.Rest;
+                document.getElementById("spantime3").innerHTML = timer.Study2; 
 
 
             }
@@ -140,4 +197,3 @@
     </div>
 </body>
 </html>
-
