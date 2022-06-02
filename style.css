@@ -1,0 +1,238 @@
+/* base styles */
+body {
+    background:#e0d5c5;
+    color:#7B8677;
+    font:120%/1.125em Arial, Helvetica, sans-serif;
+    margin:0;
+    position:relative;
+}
+a {
+    outline:none;
+    text-decoration:underline;
+   font-size:1em;
+  margin:0;
+  position:relative;
+}
+a:hover,a:active {
+    outline:0;
+    text-decoration:none;
+}
+  b{
+    color:#7B8677;
+     outline:none;
+    text-decoration:underline;
+   font-size:3em;
+  margin:40%  0  10%;
+  position:relative;
+  }
+b2{
+    color:#7B8677;
+     outline:none;
+    text-decoration:underline;
+   font-size:3em;
+  margin:50%  0  5%;
+  position:relative;
+  }
+img {
+    border:0 none;
+    margin:0;
+    vertical-align:top;
+
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+a:hover img {
+    opacity:.8;
+}
+h1,h2,h3,h4 {
+    color:#7B8677;
+    font-family:cursive;
+    font-weight:400;
+    padding:0;
+}
+h1 {
+    font-size:3.2em;
+    line-height:1.2em;
+    margin:0 0 0.75em;
+}
+h2 {
+    font-size:3em;
+    line-height:1.2em;
+    margin:0 0 .7em;
+}
+h3 {
+    font-size:2.4em;
+    line-height:1.2em;
+    margin:0 0 1em;
+}
+h4 {
+    font-size:1em;
+    margin:0 0 1.5em;
+}
+h5 {
+  font-size:4em;
+  font-family:fantacy;
+  margin: 10% 10% 0 0;
+  color: #7B8677; 
+}
+h6 {
+  font-size:4em;
+  font-family:fantacy;
+  color: #7B8677;
+}
+p {
+    margin:0 0 1.5em;
+    padding:0;
+}
+input,select,textarea {
+    border:1px solid #dbdbdb;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:1em;
+    font-weight:400;
+    outline:none;
+    vertical-align:middle;
+
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
+    -webkit-border-radius:5px;
+}
+ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+ul li {
+    padding:0;
+    vertical-align:top;
+}
+ul li time {
+    color:#C24050;
+    display:block;
+    margin:0 0 0.5em;
+}
+.block {
+    margin:0 0 3em;
+}
+.container {
+    background:#fff;
+    border-left:1px solid #e1e1e1;
+    border-right:1px solid #e1e1e1;
+    font-size:.75em;
+    margin:0 auto;
+    width:80%;
+}
+.more {
+    background:#efefef;
+    color:#7B8677;
+    display:inline-block;
+    line-height:28px;
+    padding:0 10px;
+    text-decoration:none;
+    text-transform:uppercase;
+
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
+    -webkit-border-radius:5px;
+}
+.more:hover {
+    background:#7B8677;
+    color:#fff;
+}
+
+
+/* header section */
+header {
+    height:113px;
+    position:relative;
+    z-index:99;
+}
+
+
+/*navigation menu*/
+nav {
+    background:#7B8677;
+    display:block;
+    overflow:hidden;
+    padding:10px 0 10px;
+    position:relative;
+    z-index:99;
+}
+nav ul {
+    float:left;
+    line-height:1;
+    max-width:710px;
+    padding:0 28px;
+}
+nav ul li {
+    float:left;
+    list-style-type:none;
+    margin-left:12px;
+    padding:0;
+    position:relative;
+    vertical-align:top;
+}
+nav ul li:first-child {
+    margin-left:0;
+}
+nav ul li a {
+    color:#fcfcfc;
+    display:block;
+    padding:8px 12px;
+    position:relative;
+    text-decoration:none;
+    text-transform:uppercase;
+
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
+    -webkit-border-radius:5px;
+}
+nav ul li a:hover,nav ul li.active a {
+    background-color:#fcfcfc;
+    color:#7B8677;
+}
+
+
+/* main section */
+#main {
+    padding:0 20px;
+}
+#promo {
+    border-bottom:1px solid #E7E7E7;
+    overflow:hidden;
+    padding:20px 0;
+    position:relative;
+}
+#promo img {
+    float:left;
+    margin-right:20px;
+}
+#content {
+    border-bottom:1px solid #E7E7E7;
+    overflow:hidden;
+    padding:20px 0;
+}
+#content ul li {
+    float:left;
+    margin:0 0 22px;
+    width:288px;
+}
+#content img{
+  float:left;
+ 
+  margin:5% 10% 5% 0;
+}
+#content audio{
+  float:right;
+  margin:10% 30% 0 0;
+
+}
+#content ul li:first-child {
+    margin:0;
+}
