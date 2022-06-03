@@ -20,14 +20,14 @@
                 <li><a href="NOTES.html">NOTES</a></li>
             </ul>
         </nav>
-
+<center>
         <div>
             Time1：<span id="spantime1">0</span>
             Time2：<span id="spantime2">0</span>
             Time3：<span id="spantime3">0</span>
-        </div>
+        </div></center>
 
-
+<center>
         <input type="text" value="0" id="time1" />
         <input type="button" value="START" onclick="timecount()" id="timesum1" />
         <input type="button" value="STOP" onclick="timestop()" />
@@ -39,7 +39,7 @@
         <input type="text" value="0" id="time3" />
         <input type="button" value="START" onclick="timecount()" id="timesum3" />
         <input type="button" value="STOP" onclick="timestop()" />
-
+</center>
       
         <script>
 
@@ -103,24 +103,24 @@
 
         <div id="waitTime"></div>
         <div>
-
+<center>
             <b class="more" onclick="displayWindow()">
                 ADD NEW TIMER
-            </b>
+            </b></center>
         </div>
         <center>
             <div id="window" class="window_css">
                 <div id="table">
-                    <center><h5 style="line-height:1.2">Creatsecondsew Timer</h5></center>
+                    <center><h5 style="line-height:1.2">Create New Timer</h5></center>
                     <center>
                         <div>
-                            <p>(min)</p>
+                            <p>(second)</p>
                             <table style="text-align: center;">
                                 <tr>
                                     <td>Study 1:</td>
                                     <td><input type="text" id="study1"></td>
                                 <tr>
-                                    <td>Rest 1:</td>
+                                    <td>Rest:</td>
                                     <td><input type="text" id="rest"></td>
                                 </tr>
                                 <tr>
